@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/models/todo.dart';
@@ -18,7 +17,7 @@ class TodoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ClipRRect(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(8),
         child: Slidable(
           actionPane: SlidableDrawerActionPane(),
           key: Key(todo.id),
@@ -45,17 +44,17 @@ class TodoWidget extends StatelessWidget {
   Widget buildTodo(BuildContext context) => GestureDetector(
         onTap: () => editTodo(context, todo),
         child: Container(
-          color: Colors.white,
+          color: Colors.black12,
           padding: EdgeInsets.all(20),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Checkbox(
                 activeColor: Theme.of(context).primaryColor,
                 checkColor: Colors.white,
                 value: todo.isDone,
                 onChanged: (_) {
-                  final provider =
-                      Provider.of<TodosProvider>(context, listen: false);
+                  final provider = Provider.of<TodosProvider>(context, listen: false);
                   final isDone = provider.toggleTodoStatus(todo);
 
                   Utils.showSnackBar(

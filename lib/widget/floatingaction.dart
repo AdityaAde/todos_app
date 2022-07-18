@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/models/todo.dart';
@@ -41,8 +40,7 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
               const SizedBox(height: 8),
               TodoFormWidget(
                 onChangedTitle: (title) => setState(() => this.title = title),
-                onChangedDescription: (description) =>
-                    setState(() => this.description = description),
+                onChangedDescription: (description) => setState(() => this.description = description),
                 onSavedTodo: addTodo,
               ),
             ],
